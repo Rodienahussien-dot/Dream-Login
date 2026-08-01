@@ -12,7 +12,7 @@ body{
     justify-content:center;
     align-items:center;
     background:url("IMG_6581.jpeg") center center/cover no-repeat;
-    animation:zoom 20s ease-in-out infinite alternate;
+    
 }
 
 /* طبقة غامقة */
@@ -100,14 +100,5 @@ button:hover{
     }
     to{
         transform:translateY(30px);
-    }
-}
-
-@keyframes zoom{
-    from{
-        transform:scale(1);
-    }
-    to{
-        transform:scale(1.08);
     }
 }
