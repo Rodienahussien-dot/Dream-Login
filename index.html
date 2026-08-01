@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Login</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Lamp -->
+    <div class="lamp-area">
+
+        <div class="lamp">
+            <div class="shade"></div>
+            <div class="stand"></div>
+            <div class="base"></div>
+
+            <div class="string" id="string">
+                <div class="ball"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Login -->
+
+    <div class="login-box" id="loginBox">
+
+        <h1>Welcome</h1>
+
+        <input
+        type="text"
+        id="username"
+        placeholder="Username">
+
+        <input
+        type="password"
+        id="password"
+        placeholder="Password">
+
+        <button onclick="login()">
+            Sign In
+        </button>
+
+        <p id="error"></p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
