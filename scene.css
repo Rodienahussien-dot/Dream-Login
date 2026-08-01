@@ -1,163 +1,113 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-
-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-overflow:hidden;
-
-background:url("IMG_6581.jpeg");
-
-background-size:cover;
-
-background-position:center;
-
-animation:zoom 20s linear infinite;
-
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:url("IMG_6581.jpeg") center center/cover no-repeat;
+    animation:zoom 20s ease-in-out infinite alternate;
 }
 
-.overlay{
-
-position:absolute;
-
-width:100%;
-height:100%;
-
-background:rgba(0,0,0,.45);
-
+/* طبقة غامقة */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
 }
 
-.content{
-
-position:relative;
-
-z-index:2;
-
-text-align:center;
-
-color:white;
-
+/* النجوم */
+.stars{
+    position:fixed;
+    inset:0;
+    background-image:
+    radial-gradient(white 1px, transparent 1px);
+    background-size:70px 70px;
+    opacity:.6;
+    animation:stars 25s linear infinite;
 }
 
-h1{
-
-font-size:60px;
-
-margin-bottom:20px;
-
-}
-
-p{
-
-font-size:22px;
-
-margin-bottom:35px;
-
-}
-
-button{
-
-padding:15px 35px;
-
-font-size:18px;
-
-border:none;
-
-border-radius:30px;
-
-cursor:pointer;
-
-background:white;
-
-color:#222;
-
-transition:.4s;
-
-}
-
-button:hover{
-
-transform:scale(1.08);
-
-}
-
-@keyframes zoom{
-
-0%{
-
-transform:scale(1);
-
-}
-
-100%{
-
-transform:scale(1.1);
-
-}
-
-}
-/* Rain */
-
+/* المطر */
 .rain{
     position:fixed;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    pointer-events:none;
-    background-image:
-    linear-gradient(transparent 70%, rgba(255,255,255,.5) 100%);
-    background-size:3px 30px;
-    animation:rainMove .25s linear infinite;
+    inset:0;
+    background-image:linear-gradient(transparent,rgba(255,255,255,.7));
+    background-size:2px 25px;
+    animation:rain .25s linear infinite;
     opacity:.35;
 }
 
-/* Stars */
-
-.stars{
+/* الضباب */
+.fog{
     position:fixed;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    background-image:
-    radial-gradient(white 1px, transparent 1px);
-    background-size:50px 50px;
-    opacity:.5;
-    animation:starsMove 30s linear infinite;
+    inset:0;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(3px);
 }
 
-@keyframes rainMove{
+/* المحتوى */
+.content{
+    position:relative;
+    z-index:10;
+    text-align:center;
+    color:white;
+}
 
+.content h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.content p{
+    font-size:24px;
+    margin-bottom:30px;
+}
+
+button{
+    padding:15px 40px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* الحركات */
+
+@keyframes rain{
     from{
         background-position:0 -100px;
     }
-
     to{
         background-position:0 100px;
     }
-
 }
 
-@keyframes starsMove{
-
+@keyframes stars{
     from{
         transform:translateY(0);
     }
-
     to{
-        transform:translateY(20px);
+        transform:translateY(30px);
     }
+}
 
+@keyframes zoom{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.08);
+    }
 }
